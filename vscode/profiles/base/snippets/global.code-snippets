@@ -1,0 +1,166 @@
+{
+  "Header Comment": {
+    "prefix": "header",
+    "body": [
+      "/**",
+      " * ${1:Description}",
+      " * ",
+      " * @author ${2:Your Name}",
+      " * @date ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+      " * @version ${3:1.0.0}",
+      " */",
+      "$0"
+    ],
+    "description": "File header comment"
+  },
+  "Function Documentation": {
+    "prefix": "docfn",
+    "body": [
+      "/**",
+      " * ${1:Function description}",
+      " * ",
+      " * @param {${2:type}} ${3:paramName} - ${4:Parameter description}",
+      " * @returns {${5:type}} ${6:Return description}",
+      " * @throws {${7:ErrorType}} ${8:Error description}",
+      " */",
+      "$0"
+    ],
+    "description": "Function documentation template"
+  },
+  "TODO Comment": {
+    "prefix": "todo",
+    "body": [
+      "// TODO: ${1:Description of what needs to be done}",
+      "$0"
+    ],
+    "description": "TODO comment"
+  },
+  "FIXME Comment": {
+    "prefix": "fixme",
+    "body": [
+      "// FIXME: ${1:Description of what needs to be fixed}",
+      "$0"
+    ],
+    "description": "FIXME comment"
+  },
+  "NOTE Comment": {
+    "prefix": "note",
+    "body": [
+      "// NOTE: ${1:Important note or explanation}",
+      "$0"
+    ],
+    "description": "NOTE comment"
+  },
+  "Console Log": {
+    "prefix": "log",
+    "body": [
+      "console.log('${1:label}:', ${2:variable});$0"
+    ],
+    "description": "Console log with label"
+  },
+  "Try Catch Block": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "\t${1:// code that might throw}",
+      "} catch (${2:error}) {",
+      "\tconsole.error('${3:Error message}:', ${2:error});",
+      "\t${4:// handle error}",
+      "}",
+      "$0"
+    ],
+    "description": "Try-catch block"
+  },
+  "Async Function": {
+    "prefix": "afn",
+    "body": [
+      "async function ${1:functionName}(${2:parameters}) {",
+      "\ttry {",
+      "\t\t${3:// async code}",
+      "\t\treturn ${4:result};",
+      "\t} catch (error) {",
+      "\t\tconsole.error('Error in ${1:functionName}:', error);",
+      "\t\tthrow error;",
+      "\t}",
+      "}",
+      "$0"
+    ],
+    "description": "Async function with error handling"
+  },
+  "Arrow Function": {
+    "prefix": "arrow",
+    "body": [
+      "const ${1:functionName} = (${2:parameters}) => {",
+      "\t${3:// function body}",
+      "\treturn ${4:result};",
+      "};",
+      "$0"
+    ],
+    "description": "Arrow function"
+  },
+  "Class Template": {
+    "prefix": "class",
+    "body": [
+      "class ${1:ClassName} {",
+      "\tconstructor(${2:parameters}) {",
+      "\t\t${3:// constructor logic}",
+      "\t}",
+      "",
+      "\t${4:methodName}(${5:parameters}) {",
+      "\t\t${6:// method logic}",
+      "\t}",
+      "}",
+      "$0"
+    ],
+    "description": "Class template"
+  },
+  "Interface (TypeScript)": {
+    "prefix": "interface",
+    "body": [
+      "interface ${1:InterfaceName} {",
+      "\t${2:property}: ${3:type};",
+      "\t${4:method}(${5:parameters}): ${6:returnType};",
+      "}",
+      "$0"
+    ],
+    "description": "TypeScript interface"
+  },
+  "Type Definition (TypeScript)": {
+    "prefix": "type",
+    "body": [
+      "type ${1:TypeName} = {",
+      "\t${2:property}: ${3:type};",
+      "};",
+      "$0"
+    ],
+    "description": "TypeScript type definition"
+  },
+  "Import Statement": {
+    "prefix": "imp",
+    "body": [
+      "import { ${1:namedImports} } from '${2:module}';$0"
+    ],
+    "description": "Named import statement"
+  },
+  "Default Import": {
+    "prefix": "impd",
+    "body": [
+      "import ${1:defaultImport} from '${2:module}';$0"
+    ],
+    "description": "Default import statement"
+  },
+  "Export Statement": {
+    "prefix": "exp",
+    "body": [
+      "export { ${1:namedExports} } from '${2:module}';$0"
+    ],
+    "description": "Named export statement"
+  },
+  "Default Export": {
+    "prefix": "expd",
+    "body": [
+      "export default ${1:exportName};$0"
+    ],
+    "description": "Default export statement"
+  }
+}
