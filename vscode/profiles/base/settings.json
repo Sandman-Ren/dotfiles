@@ -3,7 +3,6 @@
   "editor.fontFamily": "JetBrains Mono, Fira Code, Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
-  "editor.lineHeight": 1.5,
   "editor.lineNumbers": "on",
   "editor.rulers": [80, 120],
   "editor.wordWrap": "bounded",
@@ -15,6 +14,7 @@
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.smoothScrolling": true,
   "editor.mouseWheelZoom": true,
+  "editor.linkedEditing": true,
   
   // Code Quality & Formatting
   "editor.formatOnSave": true,
@@ -44,6 +44,7 @@
   
   // File Handling
   "files.encoding": "utf8",
+  "files.autoGuessEncoding": true,
   "files.eol": "\n",
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1000,
