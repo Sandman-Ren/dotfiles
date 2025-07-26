@@ -135,6 +135,13 @@
   "workbench.panel.defaultLocation": "bottom",
   "workbench.tree.indent": 20,
   "workbench.tree.renderIndentGuides": "always",
+  "workbench.preferredDarkColorTheme": "auto",
+  "workbench.preferredLightColorTheme": "auto",
+  "workbench.preferredHighContrastColorTheme": "auto",
+  "workbench.preferredHighContrastLightColorTheme": "auto",
+  "window.autoDetectColorScheme": true,
+  "window.autoDetectHighContrast": true,
+  "window.restoreWindows": "none",
   
   // Explorer
   "explorer.confirmDelete": true,
