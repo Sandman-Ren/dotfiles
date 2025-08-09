@@ -1,8 +1,11 @@
-Set-Alias -Name mk -Value minikube
-Set-Alias -Name k -Value kubectl
-Set-Alias -Name kns -Value kubens
+# PowerShell Profile
 
-Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+# visuals
+Import-Module posh-git
+Import-Module Terminal-Icons
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.json" | Invoke-Expression
+
+# z-oxide
 # =============================================================================
 #
 # Utility functions for zoxide.
@@ -63,7 +66,7 @@ function global:__zoxide_hook {
 }
 
 # Initialize hook.
-$global:__zoxide_hooked = (Get-Variable __zoxide_hooked -ErrorAction SilentlyContinue -ValueOnly)
+$global:__zoxide_hooked = (Get-Variable __zoxide_hooked -ErrorAction Ignore -ValueOnly)
 if ($global:__zoxide_hooked -ne 1) {
     $global:__zoxide_hooked = 1
     $global:__zoxide_prompt_old = $function:prompt
@@ -89,8 +92,11 @@ function global:__zoxide_z {
     elseif ($args.Length -eq 1 -and ($args[0] -eq '-' -or $args[0] -eq '+')) {
         __zoxide_cd $args[0] $false
     }
-    elseif ($args.Length -eq 1 -and (Test-Path $args[0] -PathType Container)) {
+    elseif ($args.Length -eq 1 -and (Test-Path -PathType Container -LiteralPath $args[0])) {
         __zoxide_cd $args[0] $true
+    }
+    elseif ($args.Length -eq 1 -and (Test-Path -PathType Container -Path $args[0] )) {
+        __zoxide_cd $args[0] $false
     }
     else {
         $result = __zoxide_pwd
@@ -129,7 +135,24 @@ Set-Alias -Name zi -Value __zoxide_zi -Option AllScope -Scope Global -Force
 #
 # Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
-# Oh-My-Posh integration.
 
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\iterm2.omp.json" | Invoke-Expression
-# =============================================================================
+# PSReadLine
+
+# Enhanced command line editing
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -EditMode Windows
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function DeleteChar
+Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
+
+# Auto Completion for CLI tools
+# GitHub CLI completion
+if (Get-Command gh -ErrorAction SilentlyContinue) {
+    Invoke-Expression -Command $(gh completion -s powershell | Out-String)
+}
+
+# Docker completion
+if (Get-Command docker -ErrorAction SilentlyContinue) {
+    Import-Module DockerCompletion -ErrorAction SilentlyContinue
+}
